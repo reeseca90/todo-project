@@ -1,0 +1,120 @@
+#mainContainer {
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+    height: 98vh;
+}
+
+#topBar {
+    background-color: grey;
+    display: flex;
+    height: 75px;
+    align-items: center;
+}
+
+#navButton {
+    height: 75px;
+    width: 75px;
+    background-color: skyblue;
+}
+
+#navButton:hover {
+    background-color: rgb(168, 230, 255);
+}
+
+#logo {
+    margin-right: auto;
+    padding-left: 24px;
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 9vh;
+}
+
+#footer {
+    margin-top: auto;
+    background-color: grey;
+    height: 75px;
+    text-align: center;
+}
+#footer.p {
+    margin-top: 25px;
+}
+
+#mainMenu {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    gap: 10px;
+}
+
+.mainMenuButton {
+    width: 150px;
+    height: 50px;
+    background-color: lightblue;
+    border: 1px solid black;
+    border-radius: 5px;
+
+}
+.mainMenuButton:hover {
+    background-color: lightsteelblue;
+}
+.mainMenuButton:active {
+    background-color: rgb(196, 219, 248);
+    transform: translateY(1px);
+}
+
+/* FORMS FOR NEW ENTRIES */
+
+#newProjForm {
+    display:flex;
+    flex-direction: column;
+    width: 400px;
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 9vh;
+}
+
+#newTodoForm {
+    display:flex;
+    flex-direction: column;
+    width: 400px;
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 9vh;
+}
+
+.formLabel {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    margin-top: 12px;
+}
+
+.radioLabel {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+}
+
+#prioBox {
+    display: flex;
+}
+
+.submitButton {
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
