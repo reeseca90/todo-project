@@ -1,4 +1,4 @@
-import allProjects from './objects.js';
+import {default as allProjects, createNew} from './objects.js';
 
 export default function newTodoForm() {
     const contentContainer = document.getElementById('contentContainer');
@@ -24,73 +24,96 @@ export default function newTodoForm() {
     newTodoForm.appendChild(todoForProjLabel);
     newTodoForm.appendChild(todoForProj);
 
-    const TodoDescInput = document.createElement('input');
-    TodoDescInput.setAttribute('type', 'text');
-    TodoDescInput.setAttribute('id', 'descInput');
-    const TodoDescLabel = document.createElement('label');
-    TodoDescLabel.setAttribute('for', 'descInput');
-    TodoDescLabel.setAttribute('class', 'formLabel');
-    TodoDescLabel.textContent = 'Description:'
-    newTodoForm.appendChild(TodoDescLabel);
-    newTodoForm.appendChild(TodoDescInput);
+    const todoDescInput = document.createElement('input');
+    todoDescInput.setAttribute('type', 'text');
+    todoDescInput.setAttribute('id', 'descInput');
+    const todoDescLabel = document.createElement('label');
+    todoDescLabel.setAttribute('for', 'descInput');
+    todoDescLabel.setAttribute('class', 'formLabel');
+    todoDescLabel.textContent = 'Description:'
+    newTodoForm.appendChild(todoDescLabel);
+    newTodoForm.appendChild(todoDescInput);
 
-    const dueDate = document.createElement('input');
-    dueDate.setAttribute('type', 'date');
-    dueDate.setAttribute('id', 'dueDate');
+    const dueDateInput = document.createElement('input');
+    dueDateInput.setAttribute('type', 'date');
+    dueDateInput.setAttribute('id', 'dueDate');
     const dueDateLabel = document.createElement('label');
     dueDateLabel.setAttribute('for', 'dueDate');
     dueDateLabel.className = 'formLabel';
     dueDateLabel.textContent = 'Due Date:';
     newTodoForm.appendChild(dueDateLabel);
-    newTodoForm.appendChild(dueDate); // return format YYYY-MM-DD
+    newTodoForm.appendChild(dueDateInput); // return format YYYY-MM-DD
 
-    const TodoPrioBox = document.createElement('div');
-    TodoPrioBox.setAttribute('id', 'prioBox');
-    TodoPrioBox.className = 'formLabel';
-    TodoPrioBox.textContent = 'Priority:';
-    newTodoForm.appendChild(TodoPrioBox);
+    const todoPrioBox = document.createElement('div');
+    todoPrioBox.setAttribute('id', 'prioBox');
+    todoPrioBox.className = 'formLabel';
+    todoPrioBox.textContent = 'Priority:';
+    newTodoForm.appendChild(todoPrioBox);
 
-    const TodoPrioInputLow = document.createElement('input');
-    TodoPrioInputLow.setAttribute('type', 'radio');
-    TodoPrioInputLow.setAttribute('id', 'prioInputLow');
-    TodoPrioInputLow.setAttribute('name', 'priority');
-    TodoPrioInputLow.setAttribute('value', 'low');
-    const TodoPrioLabelLow = document.createElement('label');
-    TodoPrioLabelLow.setAttribute('for', 'prioInputLow');
-    TodoPrioLabelLow.setAttribute('class', 'radioLabel');
-    TodoPrioLabelLow.textContent = 'Low'
-    TodoPrioBox.appendChild(TodoPrioInputLow);
-    TodoPrioBox.appendChild(TodoPrioLabelLow);
+    const todoPrioInputLow = document.createElement('input');
+    todoPrioInputLow.setAttribute('type', 'radio');
+    todoPrioInputLow.setAttribute('id', 'prioInputLow');
+    todoPrioInputLow.setAttribute('name', 'priority');
+    todoPrioInputLow.setAttribute('value', 'low');
+    const todoPrioLabelLow = document.createElement('label');
+    todoPrioLabelLow.setAttribute('for', 'prioInputLow');
+    todoPrioLabelLow.setAttribute('class', 'radioLabel');
+    todoPrioLabelLow.textContent = 'Low'
+    todoPrioBox.appendChild(todoPrioInputLow);
+    todoPrioBox.appendChild(todoPrioLabelLow);
 
-    const TodoPrioInputMed = document.createElement('input');
-    TodoPrioInputMed.setAttribute('type', 'radio');
-    TodoPrioInputMed.setAttribute('id', 'prioInputMed');
-    TodoPrioInputMed.setAttribute('name', 'priority');
-    TodoPrioInputMed.setAttribute('value', 'med');
-    const TodoPrioLabelMed = document.createElement('label');
-    TodoPrioLabelMed.setAttribute('for', 'prioInputMed');
-    TodoPrioLabelMed.setAttribute('class', 'radioLabel');
-    TodoPrioLabelMed.textContent = 'Medium';
-    TodoPrioBox.appendChild(TodoPrioInputMed);
-    TodoPrioBox.appendChild(TodoPrioLabelMed);
+    const todoPrioInputMed = document.createElement('input');
+    todoPrioInputMed.setAttribute('type', 'radio');
+    todoPrioInputMed.setAttribute('id', 'prioInputMed');
+    todoPrioInputMed.setAttribute('name', 'priority');
+    todoPrioInputMed.setAttribute('value', 'med');
+    const todoPrioLabelMed = document.createElement('label');
+    todoPrioLabelMed.setAttribute('for', 'prioInputMed');
+    todoPrioLabelMed.setAttribute('class', 'radioLabel');
+    todoPrioLabelMed.textContent = 'Medium';
+    todoPrioBox.appendChild(todoPrioInputMed);
+    todoPrioBox.appendChild(todoPrioLabelMed);
 
-    const TodoPrioInputHigh = document.createElement('input');
-    TodoPrioInputHigh.setAttribute('type', 'radio');
-    TodoPrioInputHigh.setAttribute('id', 'prioInputHigh');
-    TodoPrioInputHigh.setAttribute('name', 'priority');
-    TodoPrioInputHigh.setAttribute('value', 'high');
-    const TodoPrioLabelHigh = document.createElement('label');
-    TodoPrioLabelHigh.setAttribute('for', 'prioInputHigh');
-    TodoPrioLabelHigh.setAttribute('class', 'radioLabel');
-    TodoPrioLabelHigh.textContent = 'High'
-    TodoPrioBox.appendChild(TodoPrioInputHigh);
-    TodoPrioBox.appendChild(TodoPrioLabelHigh);
+    const todoPrioInputHigh = document.createElement('input');
+    todoPrioInputHigh.setAttribute('type', 'radio');
+    todoPrioInputHigh.setAttribute('id', 'prioInputHigh');
+    todoPrioInputHigh.setAttribute('name', 'priority');
+    todoPrioInputHigh.setAttribute('value', 'high');
+    const todoPrioLabelHigh = document.createElement('label');
+    todoPrioLabelHigh.setAttribute('for', 'prioInputHigh');
+    todoPrioLabelHigh.setAttribute('class', 'radioLabel');
+    todoPrioLabelHigh.textContent = 'High'
+    todoPrioBox.appendChild(todoPrioInputHigh);
+    todoPrioBox.appendChild(todoPrioLabelHigh);
 
     const submit = document.createElement('button')
     submit.setAttribute('type', 'button');
     submit.className = 'submitButton';
     submit.textContent = 'Create New Todo';
+    submit.addEventListener('click', submitNew);
+    function submitNew() {
+        if (document.querySelector('input[name="priority"]:checked') == null) {
+            alert("Select a priority level");
+        } else {
+            let index = allProjects.findIndex(projIndex);
+            function projIndex(element) {
+                return (`${element.projTitle}` == todoForProj.value);
+            }
+            let description = todoDescInput.value;
+            let dueDate = dueDateInput.value;
+            let priority = document.querySelector('input[name="priority"]:checked').value;
+
+            createNew.todo(index, description, priority, dueDate);
+            console.table(allProjects[index].tasks);
+
+            refreshForm();
+        }
+    }
     newTodoForm.appendChild(submit);
 
     contentContainer.appendChild(newTodoForm);
+}
+
+function refreshForm() {
+    newTodoForm();
 }

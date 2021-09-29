@@ -88,17 +88,19 @@ export default function newProjectForm() {
     submit.textContent = 'Create New Project';
     submit.addEventListener('click', submitNew);
     function submitNew() {
-        let title = projTitleInput.value;
-        let description = projDescInput.value;
-        let dueDate = dueDateInput.value;
-        let priority = document.querySelector('input[name="priority"]:checked').value;
+        if (document.querySelector('input[name="priority"]:checked') == null) {
+            alert("Select a priority level");
+        } else {
+            let title = projTitleInput.value;
+            let description = projDescInput.value;
+            let dueDate = dueDateInput.value;
+            let priority = document.querySelector('input[name="priority"]:checked').value;
 
-        console.table(allProjects);
-        createNew.project(title, description, priority, dueDate);
-        console.log(title, description, priority, dueDate);
-        console.table(allProjects);
+            createNew.project(title, description, priority, dueDate);
+            console.table(allProjects);
 
-        refreshForm();
+            refreshForm();
+        }
     }
     newProjForm.appendChild(submit);
 

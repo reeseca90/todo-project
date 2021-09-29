@@ -1,5 +1,7 @@
 import newProjectForm from './newProjectForm.js';
 import newTodoForm from './newTodoForm.js';
+import viewAllProjectsForm from './viewAllProjects.js';
+import {default as allProjects, dataChange} from './objects.js';
 
 export default function createMainMenu() {
     const home = document.getElementById('home');
@@ -19,25 +21,30 @@ export default function createMainMenu() {
     newTodoButton.addEventListener('click', newTodoForm);
     mainMenu.appendChild(newTodoButton);
 
+    const viewProjectsButton = document.createElement('button');
+    viewProjectsButton.className = 'mainMenuButton';
+    viewProjectsButton.textContent = 'View Projects';
+    viewProjectsButton.addEventListener('click', function() {
+        console.table(allProjects);
+        viewAllProjectsForm();
+    });
+    mainMenu.appendChild(viewProjectsButton);
+
     const loadDataButton = document.createElement('button');
     loadDataButton.className = 'mainMenuButton';
     loadDataButton.textContent = 'Load Data';
+    loadDataButton.addEventListener('click', function() {
+        dataChange.loadArray()
+    });
     mainMenu.appendChild(loadDataButton);
 
     const saveDataButton = document.createElement('button');
     saveDataButton.className = 'mainMenuButton';
     saveDataButton.textContent = 'Save Data';
+    saveDataButton.addEventListener('click', function() {
+        dataChange.saveArray()
+    });
     mainMenu.appendChild(saveDataButton);
-
-    const viewTodosButton = document.createElement('button');
-    viewTodosButton.className = 'mainMenuButton';
-    viewTodosButton.textContent = 'View Todos';
-    mainMenu.appendChild(viewTodosButton);
-
-    const viewProjectsButton = document.createElement('button');
-    viewProjectsButton.className = 'mainMenuButton';
-    viewProjectsButton.textContent = 'View Projects';
-    mainMenu.appendChild(viewProjectsButton);
 
     home.appendChild(mainMenu);
 }
