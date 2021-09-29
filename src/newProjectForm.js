@@ -1,6 +1,4 @@
-import allProjects from './objects.js';
-import {createNew} from './objects.js';
-import Project from './objects.js';
+import {default as allProjects, createNew} from './objects.js';
 
 export default function newProjectForm() {
     const contentContainer = document.getElementById('contentContainer');
@@ -89,19 +87,24 @@ export default function newProjectForm() {
     submit.className = 'submitButton';
     submit.textContent = 'Create New Project';
     submit.addEventListener('click', submitNew);
-
     function submitNew() {
         let title = projTitleInput.value;
         let description = projDescInput.value;
         let dueDate = dueDateInput.value;
         let priority = document.querySelector('input[name="priority"]:checked').value;
 
+        console.table(allProjects);
+        createNew.project(title, description, priority, dueDate);
         console.log(title, description, priority, dueDate);
+        console.table(allProjects);
 
-        Project.createNew(title, description, priority, dueDate);
+        refreshForm();
     }
-
     newProjForm.appendChild(submit);
 
     contentContainer.appendChild(newProjForm);
+}
+
+function refreshForm() {
+    newProjectForm();
 }

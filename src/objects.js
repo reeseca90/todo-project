@@ -11,17 +11,13 @@ class Todo {
     }
 }
 
-export class Project {
+class Project {
     constructor(title, description, priority, dueDate) {
         this.projTitle = title;
         this.projDesc = description;
         this.projPriority = priority;
         this.dueDate = dueDate;
         this.tasks = [];
-    }
-
-    createNew(title, description, priority, dueDate) {
-        allProjects.push(new Project(title, description, priority, dueDate));
     }
 }
 
