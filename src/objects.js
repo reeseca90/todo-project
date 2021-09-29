@@ -1,7 +1,5 @@
 import createHome from "./home.js";
 
-// define storage as array and default project for todos
-// let allProjects = [{projTitle:'Todos', projDesc:'todos', projPriority:'low', dueDate:null, tasks:[]}];
 let allProjects = [];
 export default allProjects;
 
@@ -41,18 +39,15 @@ export const dataChange = (() => {
         let userWarning = confirm("Are you sure? This will replace your current session.");
 
         if (userWarning) {
-            let loadedData = localStorage.getItem('todoLists');
-            console.table(loadedData);
-            allProjects = JSON.parse(loadedData);
+            allProjects = JSON.parse(localStorage.getItem('todoLists'));
+            console.table(allProjects);
             alert("Data loaded.");
-            createHome();
         } else {
             alert("Load data cancelled.");
         }
 
         console.table(allProjects);
     }
-
 
     return {
         saveArray,

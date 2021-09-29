@@ -34,7 +34,8 @@ export default function createMainMenu() {
     loadDataButton.className = 'mainMenuButton';
     loadDataButton.textContent = 'Load Data';
     loadDataButton.addEventListener('click', function() {
-        dataChange.loadArray()
+        dataChange.loadArray();
+        console.table(allProjects);
     });
     mainMenu.appendChild(loadDataButton);
 
@@ -42,7 +43,7 @@ export default function createMainMenu() {
     saveDataButton.className = 'mainMenuButton';
     saveDataButton.textContent = 'Save Data';
     saveDataButton.addEventListener('click', function() {
-        dataChange.saveArray()
+        dataChange.saveArray();
     });
     mainMenu.appendChild(saveDataButton);
 
