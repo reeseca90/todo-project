@@ -1,8 +1,8 @@
-import {default as allProjects, dataChange, removeItem} from "./objects.js";
+import {dataChange, removeItem} from "./objects.js";
 import viewTodosForm from "./viewTodos.js";
 
 export default function viewAllProjectsForm() {
-    (console.table(allProjects));
+    (console.table(dataChange.allProjects));
 
     const contentContainer = document.getElementById('contentContainer');
 
@@ -42,7 +42,7 @@ export default function viewAllProjectsForm() {
     headerTitle.textContent = "Project";
     allProjectsHeader.appendChild(headerTitle);
 
-    allProjects.forEach(element => {
+    dataChange.allProjects.forEach(element => {
         const newProjHead = document.createElement('div');
         newProjHead.setAttribute('id', `projHead${element.projTitle}`);
         newProjHead.classList.add('individualProject');
@@ -76,14 +76,14 @@ export default function viewAllProjectsForm() {
         deleteProj.classList.add('todoCompleteToggle');
         deleteProj.textContent = 'Delete project';
         deleteProj.addEventListener('click', function(e) {
-            removeItem.project(allProjects.indexOf(element));
+            removeItem.project(dataChange.allProjects.indexOf(element));
             e.stopPropagation();
             refreshForm();
         });
         newProjHead.appendChild(deleteProj);
 
         // go to project event listener here
-        let projIndex = allProjects.indexOf(element);
+        let projIndex = dataChange.allProjects.indexOf(element);
         newProjHead.addEventListener('click', function() {
         viewTodosForm(projIndex)
         });

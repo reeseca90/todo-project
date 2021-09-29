@@ -1,7 +1,7 @@
 import newProjectForm from './newProjectForm.js';
 import newTodoForm from './newTodoForm.js';
 import viewAllProjectsForm from './viewAllProjects.js';
-import {default as allProjects, dataChange} from './objects.js';
+import {dataChange} from './objects.js';
 
 export default function createMainMenu() {
     const home = document.getElementById('home');
@@ -25,7 +25,7 @@ export default function createMainMenu() {
     viewProjectsButton.className = 'mainMenuButton';
     viewProjectsButton.textContent = 'View Projects';
     viewProjectsButton.addEventListener('click', function() {
-        console.table(allProjects);
+        console.table(dataChange.allProjects);
         viewAllProjectsForm();
     });
     mainMenu.appendChild(viewProjectsButton);
@@ -35,7 +35,7 @@ export default function createMainMenu() {
     loadDataButton.textContent = 'Load Data';
     loadDataButton.addEventListener('click', function() {
         dataChange.loadArray();
-        console.table(allProjects);
+        console.table(dataChange.allProjects);
     });
     mainMenu.appendChild(loadDataButton);
 

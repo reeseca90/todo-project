@@ -1,9 +1,5 @@
-// import
 import './style.css';
-// import newProjectForm from './forms.js';
 import createHome from './home.js';
-// import createMainMenu from './mainMenu.js';
-import allProjects from './objects.js';
 
 const createLayout = (() => {
     const content = document.querySelector('#mainContainer');

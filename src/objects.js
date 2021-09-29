@@ -1,8 +1,5 @@
 import createHome from "./home.js";
 
-let allProjects = [];
-export default allProjects;
-
 class Todo {
     constructor(description, priority, dueDate) {
         this.todoDesc = description;
@@ -23,6 +20,8 @@ class Project {
 }
 
 export const dataChange = (() => {
+    let allProjects = [];
+
     function saveArray() {
         let userWarning = confirm("Are you sure? This will overwrite and stored data.");
 
@@ -39,6 +38,7 @@ export const dataChange = (() => {
         let userWarning = confirm("Are you sure? This will replace your current session.");
 
         if (userWarning) {
+            console.table(JSON.parse(localStorage.getItem('todoLists')));
             allProjects = JSON.parse(localStorage.getItem('todoLists'));
             console.table(allProjects);
             alert("Data loaded.");
@@ -50,6 +50,7 @@ export const dataChange = (() => {
     }
 
     return {
+        allProjects,
         saveArray,
         loadArray
     }
@@ -58,11 +59,11 @@ export const dataChange = (() => {
 
 export const createNew = (() => {
     function project(title, description, priority, dueDate) {
-        allProjects.push(new Project(title, description, priority, dueDate));
+        dataChange.allProjects.push(new Project(title, description, priority, dueDate));
     }
 
     function todo(index, description, priority, dueDate) {
-        allProjects[index].tasks.push(new Todo(description, priority, dueDate));
+        dataChange.allProjects[index].tasks.push(new Todo(description, priority, dueDate));
     }
 
     return {

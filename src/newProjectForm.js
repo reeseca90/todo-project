@@ -1,4 +1,4 @@
-import {default as allProjects, createNew} from './objects.js';
+import {dataChange, createNew} from './objects.js';
 
 export default function newProjectForm() {
     const contentContainer = document.getElementById('contentContainer');
@@ -97,7 +97,7 @@ export default function newProjectForm() {
             let priority = document.querySelector('input[name="priority"]:checked').value;
 
             createNew.project(title, description, priority, dueDate);
-            console.table(allProjects);
+            console.table(dataChange.allProjects);
 
             refreshForm();
         }

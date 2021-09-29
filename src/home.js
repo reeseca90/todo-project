@@ -1,5 +1,4 @@
 import createMainMenu from './mainMenu.js';
-import allProjects from './objects.js';
 
 export default function createHome() {
 

@@ -1,4 +1,4 @@
-import {default as allProjects, removeItem} from "./objects";
+import {dataChange, removeItem} from "./objects";
 
 export default function viewTodosForm(projIndex) {
     const contentContainer = document.getElementById('contentContainer');
@@ -44,7 +44,7 @@ export default function viewTodosForm(projIndex) {
     todosProjectHeader.appendChild(todoCompleteSpacer);
 
     // needs to be passed in the project index
-    allProjects[projIndex].tasks.forEach(element => {
+    dataChange.allProjects[projIndex].tasks.forEach(element => {
         const newTodoHead = document.createElement('div');
         newTodoHead.setAttribute('id', `todoHead${element.todoDesc}`);
         newTodoHead.classList.add('individualProject');
@@ -88,7 +88,7 @@ export default function viewTodosForm(projIndex) {
         newTodoDelete.classList.add('todoDelete');
         newTodoDelete.textContent = 'Delete';
         newTodoDelete.addEventListener('click', function(e) {
-            removeItem.todo(projIndex, allProjects[projIndex].tasks.indexOf(element));
+            removeItem.todo(projIndex, dataChange.allProjects[projIndex].tasks.indexOf(element));
             e.stopPropagation();
             refreshForm(projIndex);
         });

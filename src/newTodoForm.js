@@ -1,4 +1,4 @@
-import {default as allProjects, createNew} from './objects.js';
+import {dataChange, createNew} from './objects.js';
 
 export default function newTodoForm() {
     const contentContainer = document.getElementById('contentContainer');
@@ -13,7 +13,7 @@ export default function newTodoForm() {
     const todoForProj = document.createElement('select');
     todoForProj.setAttribute('id', 'todoForProj');
 
-    allProjects.forEach(element => {
+    dataChange.allProjects.forEach(element => {
         todoForProj.innerHTML += `<option value="${element.projTitle}">${element.projTitle}</option>`;
     });
 
@@ -95,7 +95,7 @@ export default function newTodoForm() {
         if (document.querySelector('input[name="priority"]:checked') == null) {
             alert("Select a priority level");
         } else {
-            let index = allProjects.findIndex(projIndex);
+            let index = dataChange.allProjects.findIndex(projIndex);
             function projIndex(element) {
                 return (`${element.projTitle}` == todoForProj.value);
             }
@@ -104,7 +104,7 @@ export default function newTodoForm() {
             let priority = document.querySelector('input[name="priority"]:checked').value;
 
             createNew.todo(index, description, priority, dueDate);
-            console.table(allProjects[index].tasks);
+            console.table(dataChange.allProjects[index].tasks);
 
             refreshForm();
         }
