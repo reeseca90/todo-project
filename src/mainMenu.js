@@ -25,7 +25,6 @@ export default function createMainMenu() {
     viewProjectsButton.className = 'mainMenuButton';
     viewProjectsButton.textContent = 'View Projects';
     viewProjectsButton.addEventListener('click', function() {
-        console.table(dataChange.allProjects);
         viewAllProjectsForm();
     });
     mainMenu.appendChild(viewProjectsButton);
@@ -34,7 +33,8 @@ export default function createMainMenu() {
     loadDataButton.className = 'mainMenuButton';
     loadDataButton.textContent = 'Load Data';
     loadDataButton.addEventListener('click', function() {
-        dataChange.loadArray();
+        console.table(localStorage.getItem('todoLists'));
+        dataChange.allProjects = dataChange.loadArray(dataChange.allProjects);
         console.table(dataChange.allProjects);
     });
     mainMenu.appendChild(loadDataButton);
@@ -43,7 +43,8 @@ export default function createMainMenu() {
     saveDataButton.className = 'mainMenuButton';
     saveDataButton.textContent = 'Save Data';
     saveDataButton.addEventListener('click', function() {
-        dataChange.saveArray();
+        console.table(dataChange.allProjects);
+        dataChange.saveArray(dataChange.allProjects);
     });
     mainMenu.appendChild(saveDataButton);
 

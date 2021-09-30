@@ -2,8 +2,6 @@ import {dataChange, removeItem} from "./objects.js";
 import viewTodosForm from "./viewTodos.js";
 
 export default function viewAllProjectsForm() {
-    (console.table(dataChange.allProjects));
-
     const contentContainer = document.getElementById('contentContainer');
 
     while (contentContainer.lastElementChild) {

@@ -22,31 +22,23 @@ class Project {
 export const dataChange = (() => {
     let allProjects = [];
 
-    function saveArray() {
+    function saveArray(array) {
         let userWarning = confirm("Are you sure? This will overwrite and stored data.");
 
         if (userWarning) {
-            localStorage.setItem('todoLists', JSON.stringify(allProjects));
-            alert("Data saved.");
+            localStorage.setItem('todoLists', JSON.stringify(array));
             createHome();
-        } else {
-            alert("Save data cancelled");
         }
+        return array;
     }
 
-    function loadArray() {
+    function loadArray(array) {
         let userWarning = confirm("Are you sure? This will replace your current session.");
 
         if (userWarning) {
-            console.table(JSON.parse(localStorage.getItem('todoLists')));
-            allProjects = JSON.parse(localStorage.getItem('todoLists'));
-            console.table(allProjects);
-            alert("Data loaded.");
-        } else {
-            alert("Load data cancelled.");
+            array = JSON.parse(localStorage.getItem('todoLists'));
         }
-
-        console.table(allProjects);
+        return array;
     }
 
     return {
@@ -75,8 +67,8 @@ export const createNew = (() => {
 
 export const removeItem = (() => {
     function project(index) {
-        if (allProjects[index].tasks.length == 0) {
-            allProjects.splice(index, 1);
+        if (dataChange.allProjects[index].tasks.length == 0) {
+            dataChange.allProjects.splice(index, 1);
         } else {
             console.error('tasks are not empty');
         }
@@ -84,7 +76,7 @@ export const removeItem = (() => {
     }
 
     function todo(projIndex, todoIndex) {
-        allProjects[projIndex].tasks.splice(todoIndex, 1);
+        dataChange.allProjects[projIndex].tasks.splice(todoIndex, 1);
     }
 
     return {
