@@ -15,7 +15,11 @@
 #navButton {
     height: 75px;
     width: 75px;
-    background-color: skyblue;
+    background-color: lightblue;
+    text-align: center;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
 }
 
 #navButton:hover {
@@ -25,6 +29,10 @@
 #logo {
     margin-right: auto;
     padding-left: 24px;
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 900;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 #home {
@@ -41,8 +49,8 @@
     height: 75px;
     text-align: center;
 }
-#footer.p {
-    margin-top: 25px;
+#footer > p {
+    margin-top: 28px;
 }
 
 #mainMenu {
@@ -57,12 +65,13 @@
     width: 150px;
     height: 50px;
     background-color: lightblue;
-    border: 1px solid black;
+    border: 2px solid rgb(155, 173, 197);
     border-radius: 5px;
-
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 .mainMenuButton:hover {
-    background-color: lightsteelblue;
+    background-color: rgb(168, 230, 255);
 }
 .mainMenuButton:active {
     background-color: rgb(196, 219, 248);
@@ -74,21 +83,29 @@
 #newProjForm {
     display:flex;
     flex-direction: column;
-    width: 400px;
-    height: 350px;
+    width: 460px;
+    padding: 30px;
+    height: 250px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 9vh;
+    background-color: lightsteelblue;
+    border: 2px solid rgb(155, 173, 197);
+    border-radius: 10px;
 }
 
 #newTodoForm {
-    display:flex;
-    flex-direction: column;
-    width: 400px;
-    height: 350px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 9vh;
+  display:flex;
+  flex-direction: column;
+  width: 460px;
+  padding: 30px;
+  height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 9vh;
+  background-color: lightsteelblue;
+  border: 2px solid rgb(155, 173, 197);
+  border-radius: 10px;
 }
 
 .formLabel {
@@ -109,14 +126,24 @@
 }
 
 .submitButton {
-    width: 200px;
-    height: 40px;
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
+  width: 200px;
+  height: 40px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: lightblue;
+  border: 2px solid rgb(155, 173, 197);
+  border-radius: 5px;
+}
+.submitButton:hover {
+  background-color: rgb(168, 230, 255);
+}
+.submitButton:active {
+  background-color: rgb(196, 219, 248);
+  transform: translateY(1px);
 }
 
 /* ALL PROJECTS VIEW */
@@ -134,8 +161,10 @@
     display: flex;
     width: 680px;
     height: 75px;
-    border: 1px solid black;
+    background-color: lightsteelblue;
+    border: 2px solid rgb(155, 173, 197);
     border-radius: 10px;
+    align-items: center;
 }
 
 .addDueDate {
@@ -156,24 +185,33 @@
 /* TODOS VIEW */
 
 #allTodosContainer {
-    display: flex;
-    flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 9vh;
-    width: 700px;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 9vh;
+  width: 700px;
 }
 
 .todoCompleteToggle {
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
-    margin-left: auto;
-    width: 85px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin-left: auto;
+  background-color: lightblue;
+  border: 2px solid rgb(155, 173, 197);
+  border-radius: 5px;
+  height: 50px;
+  width: 75px;
 }
 .todoDelete {
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
-    width: 85px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  width: 85px;
+  background-color: lightblue;
+  border: 2px solid rgb(155, 173, 197);
+  border-radius: 5px;
+  height: 50px;
+  width: 75px;
 }
